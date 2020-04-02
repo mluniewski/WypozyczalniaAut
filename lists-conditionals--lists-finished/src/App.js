@@ -9,9 +9,7 @@ import CarTable from './CarListHandler/CarListHandler'
 class App extends Component {
   state = {
     cars: [
-      { id: 1, marka: 'Audi', nazwa: 'A4',  dataProd: 2002, cena: 20000 },
-      { id: 2, marka: 'Toyota', nazwa: 'Corolla',  dataProd: 1999, cena: 5000 },
-      { id: 3, marka: 'Honda', nazwa: 'Civic',  dataProd: 2010, cena: 25000 },
+      
     ],
     otherState: 'some other value',
     showCars: true                    
@@ -59,12 +57,12 @@ class App extends Component {
 
     if ( this.state.showCars ) {
       cars = (
-        
-        <table className={classes.Car} >
-        <tr>
         <div>
           {this.state.cars.map((car, index) => {
-            return <td> <Person
+            return <td>
+              <CarTable/> 
+
+              /*<Person
               click={() => this.deleteCarHandler(index)}
               marka={car.marka}
                nazwa={car.nazwa} 
@@ -72,14 +70,12 @@ class App extends Component {
                cena={car.cena}
                key={car.id}
               changed={(event) => this.nameChangedHandler(event, car.id)} /> </td>
-          })}
+          })}*/
+          
          <Reservation/>
         </div>
-        </tr>
-        </table>
       );
     }
-
     return (
       <CarTable/>
     );
