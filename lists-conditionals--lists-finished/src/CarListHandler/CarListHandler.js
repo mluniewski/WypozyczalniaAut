@@ -101,9 +101,8 @@ render () {
                 <br></br>
                 <br></br>
 
-                <button onClick={() => this.addChangeHandler()}>Dodaj Auto</button>
-                </form>
-        
+                <button onClick={(event) => this.addChangeHandler(event)}>Dodaj Auto</button>
+                </form>        
       </div>
         );
     };
