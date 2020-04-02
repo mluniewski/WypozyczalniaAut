@@ -4,6 +4,7 @@ import Person from './Person/Person';
 import Reservation from './NewCar'
 import classes from '../src/Person/MoreInfo.css'
 import CarTable from './CarListHandler/CarListHandler'
+import AddCar from '../src/AddCar/AddCar';
 
 
 class App extends Component {
@@ -60,9 +61,10 @@ class App extends Component {
         <div>
           {this.state.cars.map((car, index) => {
             return <td>
-              <CarTable/> 
+              
+              <AddCar/>
 
-              /*<Person
+              <Person
               click={() => this.deleteCarHandler(index)}
               marka={car.marka}
                nazwa={car.nazwa} 
@@ -70,7 +72,7 @@ class App extends Component {
                cena={car.cena}
                key={car.id}
               changed={(event) => this.nameChangedHandler(event, car.id)} /> </td>
-          })}*/
+          })}
           
          <Reservation/>
         </div>
