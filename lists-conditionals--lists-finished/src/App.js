@@ -79,7 +79,10 @@ class App extends Component {
       );
     }
     return (
+      <div>
       <CarTable/>
+      <AddCar/>
+      </div>
     );
   }
 }

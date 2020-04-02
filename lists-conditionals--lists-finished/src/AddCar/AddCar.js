@@ -3,8 +3,18 @@ import React, { Component } from 'react'
 
 class addCar extends Component {
     state = {
+        cars: [
+            { id: 1, marka: 'Audi', nazwa: 'A4',  dataProd: 2002, cena: 20000, akcja: "Usuń"},
+            { id: 2, marka: 'Toyota', nazwa: 'Corolla',  dataProd: 1999, cena: 5000, akcja: "Usuń" },
+            { id: 3, marka: 'Honda', nazwa: 'Civic',  dataProd: 2010, cena: 25000, akcja: "Usuń" },
+          ],
         refresh: null
     }
+
+    saveCar = (event) => {
+        event.preventDefault();
+    }
+
     addChangeHandler = (event) => {
             const newCar = {
             marka: event.target.marka.value, 
@@ -35,7 +45,7 @@ class addCar extends Component {
                 <input id="cenaAuta" name="Cena"></input>
                 <br></br>
 
-                <button>Dodaj Auto</button>
+                <button onClick={(event) => this.addChangeHandler(event)}>Dodaj Auto</button>
                 </form>
             )
         } 

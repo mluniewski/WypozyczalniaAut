@@ -11,22 +11,6 @@ class carTable extends Component {
       ]
     }
 
-    saveCar = (event) => {
-        event.preventDefault();
-    }
-
-    addChangeHandler = (event) => {
-        const newCar = {
-        marka: event.target.marka.value, 
-        nazwa: event.target.nazwa.value,
-        dataProd: event.target.dataProd.value,
-        cena: event.target.cena.value
-        }
-        const cars = [...this.state.cars];   
-        cars.push(newCar)
-        this.setState({car: cars})
-}
-
     deleteChangedHandler = ( event, id ) => {
         const carIndex = this.state.cars.findIndex(p => {
           return p.id === id;
@@ -83,26 +67,6 @@ render () {
                 {this.renderCarTable()}
             </tbody>
         </table>
-        <form onSumbit={this.saveCar}>
-                <label htmlFor="markaPojazdu">Marka pojazdu </label>
-                <input id="markaPojazdu" name="Marka"></input>
-                <br></br>
-
-                <label htmlFor="nazwaAuta">Model auta </label>
-                <input id="mazwaAuta" name="Nazwa"></input>
-                <br></br>
-
-                <label htmlFor="dataProd">Data produkcji auta </label>
-                <input id="dataProd" name="DataProd"></input>
-                <br></br>
-
-                <label htmlFor="cenaAuta"> Cena </label>
-                <input id="cenaAuta" name="Cena"></input>
-                <br></br>
-                <br></br>
-
-                <button onClick={(event) => this.addChangeHandler(event)}>Dodaj Auto</button>
-                </form>        
       </div>
         );
     };
