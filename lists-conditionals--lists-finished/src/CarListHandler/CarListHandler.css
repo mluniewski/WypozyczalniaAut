@@ -1,0 +1,10 @@
+.title {
+    text-align: center;
+}
+
+.cars {
+    text-align: center;
+    border: 3px solid #ccc;
+    width: 100%;
+}
+

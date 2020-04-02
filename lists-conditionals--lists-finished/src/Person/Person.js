@@ -3,25 +3,23 @@ import React from 'react';
 import NameForm from '../Adding';
 
 import Extra from '../ExtraPropetries';
+import classes from '../Person/MoreInfo.css';
 
 //import Logo from '../assets/images/Photo'
-
 const person = ( props ) => {
     return (
-        <div className="Person">
-            <p onClick={props.click}> Marka: {props.marka}  Model: {props.nazwa} <br/> Rocznik: {props.dataProd} Cena: {props.cena}</p>
-            <p>{props.children}</p>    
-            <NameForm/>
-            <Extra/>
-            
-           
-        </div>
-
-
+        <table className={classes.Car} >
+            <tr>
+                    <p onClick={props.click}> </p>
+                    <td>Marka: {props.marka} </td> 
+                    <td>Model: {props.nazwa} </td>
+                    <td>Rocznik: {props.dataProd} </td>
+                    <td>Cena: {props.cena} </td>
+                    <p>{props.children}</p>    
+            </tr>
+        <NameForm/>
+        <Extra/>
+        </table> 
     )
 };
-
-
-
-
 export default person;

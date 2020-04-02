@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 import Reservation from './NewCar'
-
+import classes from '../src/Person/MoreInfo.css'
+import CarTable from './CarListHandler/CarListHandler'
 
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
       { id: 3, marka: 'Honda', nazwa: 'Civic',  dataProd: 2010, cena: 25000 },
     ],
     otherState: 'some other value',
-    showCars: false
+    showCars: true                    
   }
 
   nameChangedHandler = ( event, id ) => {
@@ -44,10 +45,6 @@ class App extends Component {
     this.setState({cars: cars});
   }
 
-  toggleCarsHandler = () => {
-    const doesShow = this.state.showCars;
-    this.setState( { showCars: !doesShow } );
-  }
 
   render () {
     const style = {
@@ -62,35 +59,31 @@ class App extends Component {
 
     if ( this.state.showCars ) {
       cars = (
+        
+        <table className={classes.Car} >
+        <tr>
         <div>
-          
           {this.state.cars.map((car, index) => {
-            return <Person
+            return <td> <Person
               click={() => this.deleteCarHandler(index)}
               marka={car.marka}
-              nazwa={car.nazwa} 
-              dataProd={car.dataProd}
-              cena={car.cena}
-              key={car.id}
-              changed={(event) => this.nameChangedHandler(event, car.id)} />
+               nazwa={car.nazwa} 
+               dataProd={car.dataProd} 
+               cena={car.cena}
+               key={car.id}
+              changed={(event) => this.nameChangedHandler(event, car.id)} /> </td>
           })}
          <Reservation/>
         </div>
+        </tr>
+        </table>
       );
     }
 
     return (
-      <div className="App">
-        <h1>Wypożyczalnia aut</h1>
-        <p>Kiknij poniżej żeby rozwinąć lub ukryć dostępne pojazdy</p>
-        <button
-          style={style}
-          onClick={this.toggleCarsHandler}>Pokaż/Ukryj</button>
-        {cars}
-        <p>Kiknij w pojazd żeby go usunąć</p>
-      </div>
+      <CarTable/>
     );
   }
 }
 
-export default App;
+export default App; 

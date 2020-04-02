@@ -56,7 +56,6 @@ class Extra extends Component {
             <div>
               {this.state.moreInfo.map((info, index) => {
                 return <MoreInfo
-                //click={() => this.deleteInfoHandlers(index)}
                   vin={info.vin}
                   kolor={info.kolor} 
                   pochodzenie={info.pochodzenie}

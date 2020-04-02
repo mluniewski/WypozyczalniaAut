@@ -1,5 +1,5 @@
 import React from 'react';
-
+import classes from '../src/Person/MoreInfo.css'
 
 
 class NameForm extends React.Component {
@@ -23,11 +23,11 @@ class NameForm extends React.Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <label className = {classes.Car}>
             Imię i Nazwisko:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Wyślij" />
+          <input type="submit" value="Dodaj auto" />
         </form>
       );
     }

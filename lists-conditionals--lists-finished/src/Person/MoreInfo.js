@@ -1,8 +1,9 @@
 import React from 'react';
-//import classes from '../Person/Person.css'
+import classes from '../Person/MoreInfo.css'
 
 const moreInfo = (props) => {
     return (
+        <table className = {classes.MoreInfo}>
         <div
             className="MoreInfo">
             <span> Vin: {props.vin} </span>
@@ -10,6 +11,7 @@ const moreInfo = (props) => {
             <span> Pochodzenie: {props.pochodzenie} </span>
             <span> Zarejestrowany: {props.zarejestrowany} </span>
         </div>
+        </table>
     )
 }
 
