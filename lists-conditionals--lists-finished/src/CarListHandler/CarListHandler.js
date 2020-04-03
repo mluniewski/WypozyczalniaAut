@@ -18,6 +18,7 @@ class carTable extends Component {
         for (const car of this.state.cars){
           i++
           cars.push(<tr key={car.id}onClick={() => this.renderCarTable(car.id)}>
+            
             <td>{i}</td>
             <td>{car.marka}</td>
             <td>{car.nazwa}</td>
