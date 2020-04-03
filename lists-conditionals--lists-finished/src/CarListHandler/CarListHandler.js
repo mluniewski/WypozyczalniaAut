@@ -11,13 +11,17 @@ class carTable extends Component {
       ]
     }
 
+    detailCar = (id) => {
+      
+    }
+
     detailLook = () => {
       const cars = []
       let i = 0
       if (this.state.cars) {
         for (const car of this.state.cars){
           i++
-          cars.push(<tr key={car.id}onClick={() => this.renderCarTable(car.id)}>
+          cars.push(<tr key={car.id}onClick={() => this.detailCar(car.id)}>
             
             <td>{i}</td>
             <td>{car.marka}</td>
@@ -63,7 +67,6 @@ renderCarTable () {
                 <td>{cena}</td>
                 <td><button onClick={() => this.deleteCarHandler(index)}>{akcja}</button></td>
             </tr>
-
         )
     }
     )
@@ -79,7 +82,7 @@ render () {
         <div className="App">
         <h1 id='title' className={classes.title}>Wypożyczalnia aut</h1>
         <p>Dostępne auta</p>
-        <table id = 'cars' className={classes.cars}>
+        <table align="center" id = 'cars' className={classes.cars} >
             <tbody>
                 <tr>{this.renderCarTableHeader()}</tr>
                 {this.renderCarTable()}

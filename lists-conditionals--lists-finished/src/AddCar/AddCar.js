@@ -28,7 +28,7 @@ class addCar extends Component {
     }
     render () {
             return(
-                <form onSumbit={this.saveCar}>
+                <form onSumbit={this.saveCar} align="center">
                 <label htmlFor="marka">Marka pojazdu </label>
                 <input id="marka" name="Marka"></input>
                 <br></br>

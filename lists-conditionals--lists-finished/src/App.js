@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import classes from './App.css';
 import CarTable from './CarListHandler/CarListHandler'
 import AddCar from '../src/AddCar/AddCar';
 
 
 function App() {
-  return <div>
+  return <div classname ={classes.App}>
   <CarTable/>
   <br></br>
   <br></br>
