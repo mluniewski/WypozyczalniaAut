@@ -2,52 +2,68 @@ import React, { Component } from 'react'
 //import axios from '../Axios';
 
 class addCar extends Component {
-    state = {
-        cars: [
-            { id: 1, marka: 'Audi', nazwa: 'A4',  dataProd: 2002, cena: 20000, akcja: "Usuń"},
-            { id: 2, marka: 'Toyota', nazwa: 'Corolla',  dataProd: 1999, cena: 5000, akcja: "Usuń" },
-            { id: 3, marka: 'Honda', nazwa: 'Civic',  dataProd: 2010, cena: 25000, akcja: "Usuń" },
-          ],
-        refresh: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            cars: [
+                {id: 1, marka: 'Audi', nazwa: 'A4', dataProd: 2002, cena: 20000, akcja: "Usuń"},
+                {id: 2, marka: 'Toyota', nazwa: 'Corolla', dataProd: 1999, cena: 5000, akcja: "Usuń"},
+                {id: 3, marka: 'Honda', nazwa: 'Civic', dataProd: 2010, cena: 25000, akcja: "Usuń"},
+            ],
+            refresh: null
+        };
     }
 
     saveCar = (event) => {
-        event.preventDefault();
-    }
+        const cars = [...this.state.cars];
+        console.log(1,cars);
 
-    addChangeHandler = (event) => {
-            const newCar = {
-            marka: event.target.marka.value, 
+        let nextId = Math.max.apply(Math, cars.map(function(o) { return o.id; })) + 1;
+
+        const newCar = {
+            id: nextId,
+            marka: event.target.marka.value,
             nazwa: event.target.nazwa.value,
             dataProd: event.target.dataProd.value,
             cena: event.target.cena.value
-            }
-            const cars = [...this.state.cars];   
-            cars.push(newCar)
-            this.setState({car: cars})
-    }
+        };
+
+        cars.push(newCar);
+        console.log(2,cars);
+
+        this.setState({cars: cars});
+
+        event.target.marka.value = '';
+        event.target.nazwa.value = '';
+        event.target.dataProd.value = '';
+        event.target.cena.value = '';
+
+        event.preventDefault();
+    };
+
     render () {
-            return(
-                <form onSumbit={this.saveCar} align="center">
+        return(
+            <form onSubmit={(event) => this.saveCar(event)} align="center">
                 <label htmlFor="marka">Marka pojazdu </label>
-                <input id="marka" name="Marka"></input>
-                <br></br>
+                <input id="marka" name="Marka" />
+                <br />
 
                 <label htmlFor="nazwa">Model auta </label>
-                <input id="mazwa" name="Nazwa"></input>
-                <br></br>
+                <input id="nazwa" name="Nazwa" />
+                <br />
 
                 <label htmlFor="dataProd">Data produkcji auta </label>
-                <input id="dataProd" name="DataProd"></input>
-                <br></br>
+                <input id="dataProd" name="DataProd" />
+                <br />
 
                 <label htmlFor="cena"> Cena </label>
-                <input id="cena" name="Cena"></input>
-                <br></br>
+                <input id="cena" name="Cena" />
+                <br />
 
-                <button onClick={(event) => this.addChangeHandler(event)}>Dodaj Auto</button>
-                </form>
-            )
-        } 
+                <button type={"sumbit"}>Dodaj Auto</button>
+            </form>
+        )
     }
+}
+
 export default addCar;

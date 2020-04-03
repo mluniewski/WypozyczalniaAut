@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import classes from '../CarListHandler/CarListHandler.css'
+import axios from '../Axios';
 
 class carTable extends Component {
     state = {
@@ -11,8 +12,8 @@ class carTable extends Component {
       ]
     }
 
-    detailCar = (id) => {
-      
+    detailCar = () => {
+      axios.post('/details.json')
     }
 
     detailLook = () => {

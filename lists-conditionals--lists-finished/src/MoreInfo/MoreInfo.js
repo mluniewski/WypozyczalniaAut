@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../Person/MoreInfo.css'
+import classes from './MoreInfo.css'
 
 const moreInfo = (props) => {
     return (

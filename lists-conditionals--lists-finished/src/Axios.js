@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const axiosCar = axios.create({
-    baseURL:"https://jsonplaceholder.typicode.com/"
+    baseURL:"https://auta-3c3ce.firebaseio.com/"
 })
 
 export default axiosCar;
