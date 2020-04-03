@@ -29,20 +29,20 @@ class addCar extends Component {
     render () {
             return(
                 <form onSumbit={this.saveCar}>
-                <label htmlFor="markaPojazdu">Marka pojazdu </label>
-                <input id="markaPojazdu" name="Marka"></input>
+                <label htmlFor="marka">Marka pojazdu </label>
+                <input id="marka" name="Marka"></input>
                 <br></br>
 
-                <label htmlFor="nazwaAuta">Model auta </label>
-                <input id="mazwaAuta" name="Nazwa"></input>
+                <label htmlFor="nazwa">Model auta </label>
+                <input id="mazwa" name="Nazwa"></input>
                 <br></br>
 
                 <label htmlFor="dataProd">Data produkcji auta </label>
                 <input id="dataProd" name="DataProd"></input>
                 <br></br>
 
-                <label htmlFor="cenaAuta"> Cena </label>
-                <input id="cenaAuta" name="Cena"></input>
+                <label htmlFor="cena"> Cena </label>
+                <input id="cena" name="Cena"></input>
                 <br></br>
 
                 <button onClick={(event) => this.addChangeHandler(event)}>Dodaj Auto</button>

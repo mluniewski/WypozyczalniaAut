@@ -11,6 +11,23 @@ class carTable extends Component {
       ]
     }
 
+    detailLook = () => {
+      const cars = []
+      let i = 0
+      if (this.state.cars) {
+        for (const car of this.state.cars){
+          i++
+          cars.push(<tr key={car.id}onClick={() => this.renderCarTable(car.id)}>
+            <td>{i}</td>
+            <td>{car.marka}</td>
+            <td>{car.nazwa}</td>
+            <td>{car.dataProd}</td>
+            <td>{car.cena}</td>
+          </tr>)
+        }
+      }
+      return cars;
+    } 
     deleteChangedHandler = ( event, id ) => {
         const carIndex = this.state.cars.findIndex(p => {
           return p.id === id;
@@ -65,6 +82,7 @@ render () {
             <tbody>
                 <tr>{this.renderCarTableHeader()}</tr>
                 {this.renderCarTable()}
+                {this.detailLook()}
             </tbody>
         </table>
       </div>
