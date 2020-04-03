@@ -3,6 +3,7 @@ import classes from './App.css';
 import CarTable from './CarListHandler/CarListHandler'
 import AddCar from '../src/AddCar/AddCar';
 import ListOfCars from '../src/Containter/ListOfCats/ListOfCars';
+import FullDetailLook from './Components/FullDetailLook';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   <br></br>
   <br></br>
   <AddCar/>
-
+  <FullDetailLook/>
   </div>
 } 
     
