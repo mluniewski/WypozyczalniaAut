@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CarTable from '../CarListHandler/CarListHandler';
+import CarTableOnly from '../CarListOnly/CarListOnly';
 
 
 class MoreInfo extends Component {
@@ -16,6 +16,13 @@ state = {
 toggleCarHandler = () =>  {
     const doesShow = this.state.showDetails;
     this.setState({showDetails: !doesShow});
+}
+
+renderCarTableHeader () {
+    let header = Object.keys(this.state.cars[0]);
+    return header.map((key, index) => {
+        return <th key = {index}>{key.toUpperCase()}</th>
+    })
 }
 
 detailLook = () => {
@@ -37,21 +44,22 @@ detailLook = () => {
 };
 
 
+
+
 render () {
     let cars = null;
 
     if (this.state.showDetails) {
         cars = (
             <div>
-                <CarTable
-                {...this.state.cars}/>
+              <CarTableOnly/>
             </div>
         )
      }
      return (
          <div>
              <h3>Informacje o autach</h3>
-             <button onClick = {this.detailLook}>Wiecej szczegółów</button>
+             <button onClick = {this.toggleCarHandler}>Wiecej szczegółów</button>
              {cars}
          </div>
      )
